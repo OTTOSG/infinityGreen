@@ -246,13 +246,62 @@
 										Entre em contato através do formulário abaixo:
 									</p>
 									
-									<form name="formContato" action="contato.html">
+									<form name="formContato">
+                                                                            <script>
+                                                                                    function tecla(){
+                                                                                          evt = window.event;
+                                                                                           var tecla = evt.keyCode;
+
+                                                                                            if(tecla > 47 && tecla < 58){ 
+                                                                                           alert('Precione apenas teclas não numéricas');
+                                                                                       evt.preventDefault();
+                                                                                    }   
+                                                                                }
+                                                                            </script>
+                                                                            <script>
+                                                                                    function teclan(){
+                                                                                          event = window.event;
+                                                                                           var teclanu = event.keyCode;
+
+                                                                                            if((teclanu >= "97") && (teclanu <= "122")){ 
+                                                                                           alert('Precione apenas teclas numéricas');
+                                                                                       event.preventDefault();
+                                                                                    }   
+                                                                                }
+                                                                            </script>
+                                                                            <script>
+                                                                                     function enviarf(){
+                                                                                         if(document.getElementById("name").value == ""){
+                                                                                            alert('Por favor, preencha o campo nome');
+                                                                                                document.getElementById("name").focus();
+                                                                                                    return false;
+                                                                                            }      
+                                                                                                      else if (document.getElementById("phone").value == ""){
+                                                                                                            alert('Por favor, preencha o campo Telefone');
+                                                                                                                document.getElementById("phone").focus();
+                                                                                                                     return false;
+                                                                                                        }
+                                                                                                                else if (document.getElementById("email").value == ""){
+                                                                                                                       alert('Por favor, preencha o Email');
+                                                                                                                             document.getElementById("email").focus();
+                                                                                                                                 return false;
+                                                                                                            }
+                                                                                                                             else if (document.getElementById("message").value == ""){
+                                                                                                                    alert('Por favor, preencha o Mensagem');
+                                                                                                                 document.getElementById("message").focus();
+                                                                                                            return false;        
+                                                                                                       }else{
+                                                                                                alert('Obrigado pelo contato');
+                                                                                                return false;
+                                                                                            }
+                                                                                }
+                                                                            </script>
 										<div class="row">
 											<div class="col-md-12">
 												<label for="name" style="color: green">
 													Nome
 												</label>
-												<input type="text" class="form-control input-lg" name="name" id="name">
+												<input type="text" class="form-control input-lg" name="name" id="name" onKeyPress="tecla()" maxlength=60>
 												<br/>
 											</div>
 										</div>
@@ -261,7 +310,7 @@
 												<label for="phone" style="color: green">
 													Telefone
 												</label>
-												<input type="text" class="form-control input-lg" name="phone" id="phone">
+												<input type="text" class="form-control input-lg" name="phone" id="phone" onKeyPress="teclan()" maxlength=15>
 												<br/>
 											</div>
 										</div>
@@ -270,7 +319,7 @@
 												<label for="email" style="color: green">
 													E-mail
 												</label>
-												<input type="email" class="form-control input-lg" name="email" id="email">
+												<input type="email" class="form-control input-lg" name="email" id="email" maxlength=70>
 												<br/>
 											</div>
 										</div>
@@ -285,7 +334,7 @@
 										<div class="row">
 											<br/>
 											<div class="col-md-12">
-												<button class="btn btn-success" name="send">
+                                                                                            <button type="button" class="btn btn-success" name="send" onClick="enviarf()">
 													Enviar <i class="glyphicon glyphicon-send"></i>
 												</button>
 											</div>
