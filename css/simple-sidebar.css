@@ -8,6 +8,14 @@
     overflow-x: hidden;
     height: 100%;
     width: 100%;
+    background-color: #fcfcfc;
+    font-family: 'Lato', sans-serif;
+
+ }
+ 
+ h1,h2{
+    font-family: 'Lato', sans-serif;
+    
  }
 
 /* Toggle Styles */
@@ -19,6 +27,7 @@
     background-color: transparent;
     margin: 0;
 }
+
 .carro{
     widows: 100%;
 height: 350px;
@@ -31,6 +40,20 @@ height: 350px;
 
 .carousel-inner > .item >img {
   width:100%;
+  opacity: 0.7;
+}
+.carousel h1 {
+ text-decoration: none;
+}
+
+.carousel a{
+   text-decoration: none;    
+}
+
+.carousel span {
+ text-decoration: none;
+ color: #77e557;
+ font-family: 'Ubuntu Mono', monospace;
 }
 
 #wrapper {
@@ -117,15 +140,6 @@ height: 350px;
 }
 
 
-.sidebar-nav > .sidebar-brand img {
-    max-width: 100px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-    color: #999999;
-}
-
-
 @media(min-width:768px) {
     #wrapper {
         padding-left: 0;
@@ -154,8 +168,29 @@ height: 350px;
     }
 }
 
-
 .section{
 height: 1000px;
 
    } 
+
+   /*---------STYLES HOME----------*/
+
+.home .jumbotron{
+background-color: #fcfcfc;
+}
+
+.home  h2{
+font-size: 40px; 
+color: #77e557;
+font-family: 'Anton', sans-serif;
+}
+
+.home  p{
+font-size: 20px; 
+color: #999999;
+}
+
+.home img{
+ padding: 20px ;
+ max-width:500px; 
+}
