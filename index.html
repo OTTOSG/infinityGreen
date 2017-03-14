@@ -323,61 +323,12 @@ font-family: 'PT Sans', sans-serif;
 									</p>
 									
 									<form name="formContato">
-                                                                            <script>
-                                                                                    function tecla(){
-                                                                                          evt = window.event;
-                                                                                           var tecla = evt.keyCode;
-
-                                                                                            if(tecla > 47 && tecla < 58){ 
-                                                                                           alert('Pressione apenas teclas não-numéricas');
-                                                                                       evt.preventDefault();
-                                                                                    }   
-                                                                                }
-                                                                            </script>
-                                                                            <script>
-                                                                                    function teclan(){
-                                                                                          event = window.event;
-                                                                                           var teclanu = event.keyCode;
-
-                                                                                            if((teclanu >= "97") && (teclanu <= "122")){ 
-                                                                                           alert('Pressione apenas teclas numéricas');
-                                                                                       event.preventDefault();
-                                                                                    }   
-                                                                                }
-                                                                            </script>
-                                                                            <script>
-                                                                                     function enviarf(){
-                                                                                         if(document.getElementById("name").value == ""){
-                                                                                            alert('Por favor, preencha o nome');
-                                                                                                document.getElementById("name").focus();
-                                                                                                    return false;
-                                                                                            }      
-                                                                                                      else if (document.getElementById("phone").value == ""){
-                                                                                                            alert('Por favor, preencha o número de telefone');
-                                                                                                                document.getElementById("phone").focus();
-                                                                                                                     return false;
-                                                                                                        }
-                                                                                                                else if (document.getElementById("email").value == ""){
-                                                                                                                       alert('Por favor, preencha o email');
-                                                                                                                             document.getElementById("email").focus();
-                                                                                                                                 return false;
-                                                                                                            }
-                                                                                                                             else if (document.getElementById("message").value == ""){
-                                                                                                                    alert('Por favor, preencha a mensagem');
-                                                                                                                 document.getElementById("message").focus();
-                                                                                                            return false;        
-                                                                                                       }else{
-                                                                                                alert('Obrigado pelo contato');
-                                                                                                return false;
-                                                                                            }
-                                                                                }
-                                                                            </script>
 										<div class="row">
 											<div class="col-md-12">
 												<label for="name" style="color: green">
 													Nome
 												</label>
-												<input type="text" class="form-control input-lg" name="name" id="name" onKeyPress="tecla()" maxlength=60>
+												<input type="text" class="form-control input-lg" name="name" id="name" required onKeyPress="tecla()" maxlength=60>
 												<br/>
 											</div>
 										</div>
@@ -386,7 +337,7 @@ font-family: 'PT Sans', sans-serif;
 												<label for="phone" style="color: green">
 													Telefone
 												</label>
-												<input type="text" class="form-control input-lg" name="phone" id="phone" onKeyPress="teclan()" maxlength=15>
+												<input type="text" class="form-control input-lg" name="phone" id="phone" maxlength=15>
 												<br/>
 											</div>
 										</div>
@@ -395,7 +346,7 @@ font-family: 'PT Sans', sans-serif;
 												<label for="email" style="color: green">
 													E-mail
 												</label>
-												<input type="email" class="form-control input-lg" name="email" id="email" maxlength=70>
+												<input type="email" class="form-control input-lg" name="email" required id="email" maxlength=70>
 												<br/>
 											</div>
 										</div>
@@ -404,13 +355,13 @@ font-family: 'PT Sans', sans-serif;
 												<label for="message" style="color: green">
 													Mensagem
 												</label>
-												<textarea class="form-control" name="message" id="message" rows="7"></textarea>
+												<textarea class="form-control" name="message" id="message" required rows="7"></textarea>
 											</div>
 										</div>
 										<div class="row">
 											<br/>
 											<div class="col-md-12">
-                                                                                            <button type="button" class="btn btn-success" name="send" onClick="enviarf()">
+												<button type="button" class="btn btn-success" name="send" onClick="enviarf()">
 													Enviar <i class="glyphicon glyphicon-send"></i>
 												</button>
 											</div>
@@ -429,21 +380,56 @@ font-family: 'PT Sans', sans-serif;
         </div>
         <!-- /#wrapper -->
         <!-- jQuery -->
-        <script src="js/jquery.js">
-        </script>
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js">
-        </script>
-        <!-- Menu Toggle Script -->
-        <script>
-                                                $(document).scroll(function() {
-                                            var y = $(this).scrollTop();
-                                            if (y > 50) {
-                                                $("#wrapper").addClass("toggled");
-                                            } else {
-                                                $("#wrapper").removeClass("toggled");
-                                            }
-                                        });
-        </script>
     </body>
+
+<script src="js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Menu Toggle Script -->
+<script>
+$(document).scroll(function() {
+	var y = $(this).scrollTop();
+	if (y > 50) {
+		$("#wrapper").addClass("toggled");
+	} else {
+		$("#wrapper").removeClass("toggled");
+	}
+});
+
+$(function(){
+    $('#phone').on('keypress', function(e){
+		if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+			return false;
+		}
+	});
+});
+	
+function tecla(){
+	evt = window.event;
+	var tecla = evt.keyCode;
+
+	if(tecla > 47 && tecla < 58){ 
+		alert('Pressione apenas teclas não-numéricas');
+		evt.preventDefault();
+	}   
+}
+
+function enviarf(){
+	if(document.getElementById("name").value == ""){
+		alert('Por favor, preencha o nome');
+		document.getElementById("name").focus();
+		return false;
+	}else if (document.getElementById("email").value == ""){
+		alert('Por favor, preencha o email');
+		document.getElementById("email").focus();
+		return false;
+	}else if (document.getElementById("message").value == ""){
+		alert('Por favor, preencha a mensagem');
+		document.getElementById("message").focus();
+		return false;        
+	}
+	
+	alert('Obrigado pelo contato');
+}
+</script>
 </html>
