@@ -178,12 +178,6 @@ font-family: 'Ubuntu Mono', monospace;
         margin-right: 0;
     }
 }
-
-.section{
-height: 1000px;
-
-   } 
-
    /*---------STYLES HOME----------*/
 #home{
     height: 300px;
@@ -210,4 +204,40 @@ font-family: 'Julius Sans One', sans-serif;
 
 #institucional hr{
     border-color:  #77e557;  
+}
+
+#noticias hr{
+    border-color:  #77e557;  
+}
+
+.section{
+margin-top: 50px;
+}
+
+.pscontent{
+    padding: 20px;
+    height: 250px;
+}
+.pscontent2 {
+    padding: 50px;
+    background-color: #77e557;
+    height: 270px;
+    color: white;
+}
+
+.pscontent2 p{
+font-weight: 400;
+font-size: 20px;
+}
+
+
+.section{
+height: 100%;   
+width: 100%;
+}
+
+#contato .jumbotron{
+    background-color: white;
+    font-family: 'Open Sans', sans-serif;
+
 }
