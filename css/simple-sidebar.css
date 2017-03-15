@@ -230,11 +230,11 @@ font-weight: 400;
 font-size: 20px;
 }
 
-
-.section{
-height: 100%;   
-width: 100%;
+.pscontent2 a{
+    text-decoration: none; 
+    color: 
 }
+
 
 #contato .jumbotron{
     background-color: white;
