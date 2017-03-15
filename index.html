@@ -133,7 +133,7 @@ font-family: 'PT Sans', sans-serif;
                         </div>
                     </div>
                     <div class="item">
-                        <img src="images/consult4.jpg" alt="Flower">
+                        <img src="images/consult5.jpg" alt="Flower">
                         <div class="carousel-caption">
                             <h1>
                                 RESPONSABILIDADE
@@ -470,7 +470,8 @@ $(document).scroll(function() {
 $(function(){
     $('#phone').on('keypress', function(e){
 		if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-			return false;
+		alert('Precione apenas teclas numericas');	
+                return false;
 		}
 	});
 });
